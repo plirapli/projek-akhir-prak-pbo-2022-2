@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.ControllerDokter;
+import javax.swing.JTable;
+
 /**
  *
  * @author Muhammad Rafli
@@ -15,6 +18,8 @@ public class ViewDokter extends javax.swing.JFrame {
      */
     public ViewDokter() {
         initComponents();
+        ctrlDokter = new ControllerDokter(this);
+        ctrlDokter.isiTable();
     }
 
     /**
@@ -39,6 +44,27 @@ public class ViewDokter extends javax.swing.JFrame {
     jButton2 = new javax.swing.JButton();
     jButton3 = new javax.swing.JButton();
 
+<<<<<<< HEAD
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(640, 360));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(640, 360));
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jTextField1.setToolTipText("Masukkan nama");
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+=======
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setBackground(new java.awt.Color(255, 255, 255));
     setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -48,6 +74,7 @@ public class ViewDokter extends javax.swing.JFrame {
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
     jPanel1.setMinimumSize(new java.awt.Dimension(640, 360));
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 
     jTextField1.setBackground(new java.awt.Color(255, 255, 255));
     jTextField1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -63,8 +90,19 @@ public class ViewDokter extends javax.swing.JFrame {
     jLabel2.setForeground(new java.awt.Color(102, 102, 102));
     jLabel2.setText("Nama");
 
+<<<<<<< HEAD
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jTextField2.setToolTipText("Masukkan nama");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+=======
     jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
     jLabel1.setText("Pendaftaran Dokter");
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 
     jTextField2.setBackground(new java.awt.Color(255, 255, 255));
     jTextField2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -134,6 +172,28 @@ public class ViewDokter extends javax.swing.JFrame {
     jButton3.setForeground(new java.awt.Color(153, 153, 153));
     jButton3.setText("Reset");
 
+<<<<<<< HEAD
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 363, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+=======
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
@@ -206,6 +266,7 @@ public class ViewDokter extends javax.swing.JFrame {
           .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addGap(0, 0, Short.MAX_VALUE)))
     );
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -262,6 +323,28 @@ public class ViewDokter extends javax.swing.JFrame {
         });
     }
 
+<<<<<<< HEAD
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tabelDokter;
+    // End of variables declaration//GEN-END:variables
+    ControllerDokter ctrlDokter;
+    
+    public JTable getTabelData(){
+        return tabelDokter;
+    }
+    
+=======
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.ButtonGroup buttonGroup1;
   private javax.swing.JButton jButton1;
@@ -276,4 +359,5 @@ public class ViewDokter extends javax.swing.JFrame {
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTable tabelDokter;
   // End of variables declaration//GEN-END:variables
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 }

@@ -34,8 +34,13 @@ public class ViewMain extends javax.swing.JFrame {
 
     jLabel1.setText("jLabel1");
 
+<<<<<<< HEAD
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+=======
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setResizable(false);
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -51,6 +56,24 @@ public class ViewMain extends javax.swing.JFrame {
       }
     });
 
+<<<<<<< HEAD
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(222, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(173, Short.MAX_VALUE))
+        );
+=======
     jButton2.setBackground(new java.awt.Color(63, 122, 154));
     jButton2.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
     jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,6 +85,7 @@ public class ViewMain extends javax.swing.JFrame {
         jButton2ActionPerformed(evt);
       }
     });
+>>>>>>> 1319e34bd701201f2effff1864c4c699ef490ce6
 
     jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/yulje_logo.png"))); // NOI18N
 
