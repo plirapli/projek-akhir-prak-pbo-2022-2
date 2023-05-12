@@ -107,6 +107,11 @@ public class ViewDokter extends javax.swing.JFrame {
             }
         });
         tabelDokter.setColumnSelectionAllowed(true);
+        tabelDokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelDokterMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelDokter);
         tabelDokter.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabelDokter.getColumnModel().getColumnCount() > 0) {
@@ -232,6 +237,11 @@ public class ViewDokter extends javax.swing.JFrame {
         controllerDokter.insertData();
         controllerDokter.isiTable();
     }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void tabelDokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDokterMouseClicked
+        int row = tabelDokter.getSelectedRow();
+        controllerDokter.selectField(row);
+    }//GEN-LAST:event_tabelDokterMouseClicked
 
     /**
      * @param args the command line arguments

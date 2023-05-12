@@ -5,7 +5,7 @@
 package dao_interface;
 
 import java.util.List;
-import model.Dokter;
+import model.ModelDokter;
 
 /**
  *
@@ -13,7 +13,7 @@ import model.Dokter;
  */
 public interface InterfaceDokter {
 
-    public List<Dokter> getAll();
+    public List<ModelDokter> getAll();
 
-    public void insert(Dokter dokter);
+    public void insert(ModelDokter dokter);
 }

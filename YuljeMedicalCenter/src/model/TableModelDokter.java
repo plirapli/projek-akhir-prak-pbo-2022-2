@@ -12,40 +12,50 @@ import javax.swing.table.AbstractTableModel;
  * @author Yudha
  */
 public class TableModelDokter extends AbstractTableModel {
-    public TableModelDokter(List<Dokter> listDokter){
-    this.listDokter = listDokter;
-    
+
+    public TableModelDokter(List<ModelDokter> listDokter) {
+        this.listDokter = listDokter;
+
     }
+
     @Override
     public int getRowCount() {
-      return this.listDokter.size();
+        return this.listDokter.size();
     }
 
     @Override
     public int getColumnCount() {
         return 3;
     }
+
     @Override
-    public String getColumnName(int column){
-        switch(column){
-            case 0 : return "id Dokter";
-            case 1 : return "nama";
-            case 2 : return "spesialis";
-            default : return null;
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0:
+                return "ID Dokter";
+            case 1:
+                return "Nama";
+            case 2:
+                return "Spesialisasi";
+            default:
+                return null;
         }
     }
-    
+
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-          switch(columnIndex){
-            case 0 : return listDokter.get(rowIndex).getId_dokter();
-            case 1 : return listDokter.get(rowIndex).getNama();
-            case 2 : return listDokter.get(rowIndex).getSpesialis();
-            default : return null;
+        switch (columnIndex) {
+            case 0:
+                return listDokter.get(rowIndex).getId_dokter();
+            case 1:
+                return listDokter.get(rowIndex).getNama();
+            case 2:
+                return listDokter.get(rowIndex).getSpesialis();
+            default:
+                return null;
         }
     }
-    
-    List<Dokter> listDokter;
-    
-     
+
+    List<ModelDokter> listDokter;
+
 }

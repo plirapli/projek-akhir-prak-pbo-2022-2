@@ -8,7 +8,8 @@ package model;
  *
  * @author Yudha
  */
-public class Dokter {
+public class ModelDokter {
+
     private Integer id_dokter;
     private String nama, spesialis;
 
@@ -35,5 +36,5 @@ public class Dokter {
     public void setSpesialis(String spesialis) {
         this.spesialis = spesialis;
     }
-    
+
 }
