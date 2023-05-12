@@ -3,26 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/yuljemedicalcenter/YuljeMedicalCenter.java</file>
+            <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/helper/Connector.java</file>
             <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewMain.java</file>
             <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewDokter.java</file>
-            <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/controller/ControllerDokter.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewMain.java</file>
-            <file>file:/D:/CODE/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewDokter.java</file>
-=======
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/model/TableModelDokter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewDokter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/model/Dokter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/controller/ControllerDokter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/helper/Connector.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/yuljemedicalcenter/YuljeMedicalCenter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/DAOInteface/InterfaceDokter.java</file>
-            <file>file:/D:/UPNVY/SEMESTER%20IV/Praktikum%20PBO/TUGAS/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/DAO/DAODokter.java</file>
->>>>>>> 2cf26290e30d9c290d55861cc0dd86a3e7df1093
->>>>>>> main
         </group>
     </open-files>
 </project-private>
