@@ -7,6 +7,7 @@ package controller;
 import DAO.DAODokter;
 import DAOInteface.InterfaceDokter;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Dokter;
 import model.TableModelDokter;
 import view.ViewDokter;
@@ -35,6 +36,14 @@ public class ControllerDokter {
         TableModelDokter tabeldokter = new TableModelDokter(listDokter);
         viewDokter.getTabelData().setModel(tabeldokter);
         
+    }
+    
+    public void insertData(){
+        Dokter b = new Dokter();
+        b.setNama(viewDokter.getNameData().getText());
+        b.setSpesialis(viewDokter.getSpesialisasiData().getText());
+        Idokter.insert(b);
+        JOptionPane.showConfirmDialog(null, "Input Berhasil");
     }
     
 }

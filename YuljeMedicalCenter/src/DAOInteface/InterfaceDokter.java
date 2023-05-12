@@ -13,5 +13,6 @@ import model.Dokter;
  */
 public interface InterfaceDokter {
     public List<Dokter> getAll();
-    
+    public void insert(Dokter b);
 }
+

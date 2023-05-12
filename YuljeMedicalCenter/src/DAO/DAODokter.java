@@ -7,12 +7,15 @@ package DAO;
 import DAOInteface.InterfaceDokter;
 import helper.Connector;
 import java.util.List;
+import java.sql.*;
+import javax.sql.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Dokter;
 
 /**
@@ -46,13 +49,30 @@ public class DAODokter implements InterfaceDokter {
        return listDokter;
     }
     
-    Connection con;
+
+    @Override
+    public void insert(Dokter b) {
+     PreparedStatement statement = null; 
+      try{
+       statement = con.prepareStatement(insert);
+       statement.setInt(1, b.getId_dokter());
+       statement.setString(2, b.getNama());
+       statement.setString(3, b.getSpesialis());
+       statement.execute();
+      }catch(SQLException e){
+       System.out.println("Input Failed!");
+      }finally{
+             try {
+             statement.close();
+         } catch (SQLException ex) {
+                 System.out.println("Input Failed!");
+         }
+      }
+    }
+    
+        Connection con;
     String read = "SELECT * FROM Dokter;";
-    
-    
-    
-    
-    
-    
+    String insert = "INSERT INTO Dokter (id_dokter, nama, spesialisasi) VALUES (?,?,?);";
     
 }
+ 
