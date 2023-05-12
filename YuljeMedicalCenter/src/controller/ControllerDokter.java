@@ -5,8 +5,9 @@
 package controller;
 
 import DAO.DAODokter;
-import DAOInteface.InterfaceDokter;
+import dao_interface.InterfaceDokter;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Dokter;
 import model.TableModelDokter;
 import view.ViewDokter;
@@ -16,25 +17,35 @@ import view.ViewDokter;
  * @author Yudha
  */
 public class ControllerDokter {
+
     ViewDokter viewDokter;
-    InterfaceDokter Idokter;
+    InterfaceDokter interfaceDokter;
     List<Dokter> listDokter;
-    
-    
-    
-    
-    public ControllerDokter(ViewDokter viewDokter){
+
+    public ControllerDokter(ViewDokter viewDokter) {
         this.viewDokter = viewDokter;
-        Idokter = new DAODokter();
-     
-        
+        interfaceDokter = new DAODokter();
+
     }
-    
-    public void isiTable(){
-        listDokter = Idokter.getAll();
+
+    public void isiTable() {
+        listDokter = interfaceDokter.getAll();
         TableModelDokter tabeldokter = new TableModelDokter(listDokter);
         viewDokter.getTabelData().setModel(tabeldokter);
-        
+
     }
-    
+
+    public void insertData() {
+        // Ngambil data dari form
+        String nama = viewDokter.getNamaData().getText();
+        String spesialisasi = viewDokter.getSpesialisasiData().getText();
+        
+        // Masukkin ke db
+        Dokter dokter = new Dokter();
+        dokter.setNama(nama);
+        dokter.setSpesialis(spesialisasi);
+        interfaceDokter.insert(dokter);
+        JOptionPane.showMessageDialog(null, "Berhasil menambahkan " + nama, "Input Berhasil", 1);
+    }
+
 }
