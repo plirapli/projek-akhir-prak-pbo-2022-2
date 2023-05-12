@@ -4,7 +4,7 @@
  */
 package controller;
 
-import DAO.DAODokter;
+import dao.DAODokter;
 import dao_interface.InterfaceDokter;
 import java.util.List;
 import javax.swing.JOptionPane;
