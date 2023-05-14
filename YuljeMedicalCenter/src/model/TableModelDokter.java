@@ -13,6 +13,8 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TableModelDokter extends AbstractTableModel {
 
+    List<ModelDokter> listDokter;
+
     public TableModelDokter(List<ModelDokter> listDokter) {
         this.listDokter = listDokter;
 
@@ -55,7 +57,5 @@ public class TableModelDokter extends AbstractTableModel {
                 return null;
         }
     }
-
-    List<ModelDokter> listDokter;
 
 }

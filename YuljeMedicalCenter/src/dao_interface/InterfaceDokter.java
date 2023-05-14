@@ -16,4 +16,8 @@ public interface InterfaceDokter {
     public List<ModelDokter> getAll();
 
     public void insert(ModelDokter dokter);
+    
+    public void update (ModelDokter dokter);
+    
+    public void delete(int id);
 }

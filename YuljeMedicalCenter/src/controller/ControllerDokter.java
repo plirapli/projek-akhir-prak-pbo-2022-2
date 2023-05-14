@@ -27,27 +27,50 @@ public class ControllerDokter {
         interfaceDokter = new DAODokter();
     }
 
-    public void isiTable() {
+    public void readData() {
         listDokter = interfaceDokter.getAll();
         TableModelDokter tabeldokter = new TableModelDokter(listDokter);
         viewDokter.getTabelData().setModel(tabeldokter);
     }
 
     public void insertData() {
-        // Ngambil data dari form
-        String nama = viewDokter.getNamaData().getText();
-        String spesialisasi = viewDokter.getSpesialisasiData().getText();
-
-        // Masukkin ke db
+        // mengambil data dari form dan Masukkin ke db
         ModelDokter dokter = new ModelDokter();
-        dokter.setNama(nama);
-        dokter.setSpesialis(spesialisasi);
+        dokter.setNama(viewDokter.getNamaData().getText());
+        dokter.setSpesialis(viewDokter.getSpesialisasiData().getText());
         interfaceDokter.insert(dokter);
-        JOptionPane.showMessageDialog(null, "Berhasil menambahkan " + nama, "Input Berhasil", 1);
+        JOptionPane.showMessageDialog(null, "Input Success");
     }
 
     public void selectField(int row) {
         viewDokter.getNamaData().setText(listDokter.get(row).getNama());
         viewDokter.getSpesialisasiData().setText(listDokter.get(row).getSpesialis());
+        viewDokter.getId_dokterData().setText(listDokter.get(row).getId_dokter().toString());
+    }
+
+    public void updateData() {
+
+        // mengambil data dari form dan Masukkin ke db
+        ModelDokter dokter = new ModelDokter();
+        dokter.setNama(viewDokter.getNamaData().getText());
+        dokter.setSpesialis(viewDokter.getSpesialisasiData().getText());
+        dokter.setId_dokter(Integer.parseInt(viewDokter.getId_dokterData().getText()));
+
+        interfaceDokter.update(dokter);
+        JOptionPane.showMessageDialog(null, "Update Success");
+    }
+
+    public void reset() {
+        viewDokter.getNamaData().setText("");
+        viewDokter.getSpesialisasiData().setText("");
+        viewDokter.getId_dokterData().setText("");
+
+    }
+
+    public void deleteData() {
+        ModelDokter dokter = new ModelDokter();
+
+        interfaceDokter.delete(Integer.parseInt(viewDokter.getId_dokterData().getText()));
+        JOptionPane.showMessageDialog(null, "Delete Data Success");
     }
 }

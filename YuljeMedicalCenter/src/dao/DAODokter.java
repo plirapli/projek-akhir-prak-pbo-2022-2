@@ -22,9 +22,14 @@ import model.ModelDokter;
 public class DAODokter implements InterfaceDokter {
 
     public DAODokter() {
-        con = Connector.getConnection();
+        connect = Connector.getConnection();
     }
-
+    
+    Connection connect;
+    String read = "SELECT * FROM Dokter;";
+    String insert = "INSERT INTO Dokter (nama, spesialisasi) VALUES (?,?);";
+    String update = "UPDATE dokter set nama=?, spesialisasi=? WHERE id_dokter=?;";
+    String delete = "DELETE FROM dokter WHERE id_dokter=?;";
     // Get all data dokter
     @Override
     public List<ModelDokter> getAll() {
@@ -32,7 +37,7 @@ public class DAODokter implements InterfaceDokter {
 
         try {
             listDokter = new ArrayList<ModelDokter>();
-            Statement st = con.createStatement();
+            Statement st = connect.createStatement();
             ResultSet rs = st.executeQuery(read);
             while (rs.next()) {
                 ModelDokter dokter = new ModelDokter();
@@ -49,25 +54,59 @@ public class DAODokter implements InterfaceDokter {
 
     // Add data dokter
     @Override
-    public void insert(ModelDokter b) {
+    public void insert(ModelDokter in) {
         PreparedStatement statement = null;
         try {
-            statement = con.prepareStatement(insert);
-            statement.setString(1, b.getNama());
-            statement.setString(2, b.getSpesialis());
+            statement = connect.prepareStatement(insert);
+            statement.setString(1, in.getNama());
+            statement.setString(2, in.getSpesialis());
             statement.execute();
         } catch (SQLException e) {
-            System.out.println("Input Gagal! (" + e.getMessage() + ")");
+            System.out.println("Input Failed! (" + e.getMessage() + ")");
         } finally {
             try {
                 statement.close();
             } catch (SQLException ex) {
-                System.out.println("Input Gagal!");
+                System.out.println("Input Failed!");
+            }
+        }
+    }
+    
+    @Override
+    public void update(ModelDokter up) {
+        PreparedStatement statement = null;
+        try {
+            statement = connect.prepareStatement(update);
+            statement.setString(1, up.getNama());
+            statement.setString(2, up.getSpesialis());
+            statement.setInt(3, up.getId_dokter());
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("update Failed! (" + e.getMessage() + ")");
+        } finally {
+            try { 
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("update Failed!");
             }
         }
     }
 
-    Connection con;
-    String read = "SELECT * FROM Dokter;";
-    String insert = "INSERT INTO Dokter (nama, spesialisasi) VALUES (?,?);";
+    @Override
+    public void delete(int id) {
+          PreparedStatement statement = null;
+        try {
+            statement = connect.prepareStatement(delete);
+            statement.setInt(1, id);
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Delete Failed! (" + e.getMessage() + ")");
+        } finally {
+            try { 
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Delete Failed!");
+            }
+        }
+    }
 }
