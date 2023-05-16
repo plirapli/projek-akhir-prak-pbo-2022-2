@@ -4,7 +4,10 @@
  */
 package view;
 
+import controller.ControllerAntrianPublik;
+import controller.ControllerInfoAntrian;
 import helper.LookAndFeel;
+import javax.swing.JTable;
 
 /**
  *
@@ -17,6 +20,7 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
      */
     public ViewAntrianPublik() {
         initComponents();
+        showTable();
     }
 
     /**
@@ -32,7 +36,7 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableAntrian = new javax.swing.JTable();
+        tableInfoAntrian = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,38 +46,40 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel1.setText("Informasi Nomor Antrian");
 
-        tableAntrian.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        tableAntrian.setModel(new javax.swing.table.DefaultTableModel(
+        tableInfoAntrian.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        tableInfoAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asdasd",  new Integer(2)},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {"asdasd",  new Integer(2), null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Dokter", "Nomor Antrian"
+                "Dokter", "Nomor Antrian", "id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        tableAntrian.setColumnSelectionAllowed(true);
-        tableAntrian.setFillsViewportHeight(true);
-        tableAntrian.setName(""); // NOI18N
-        tableAntrian.setRowHeight(64);
-        tableAntrian.setShowGrid(false);
-        tableAntrian.setShowHorizontalLines(true);
-        tableAntrian.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tableAntrian);
-        tableAntrian.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (tableAntrian.getColumnModel().getColumnCount() > 0) {
-            tableAntrian.getColumnModel().getColumn(0).setResizable(false);
+        tableInfoAntrian.setColumnSelectionAllowed(true);
+        tableInfoAntrian.setFillsViewportHeight(true);
+        tableInfoAntrian.setName(""); // NOI18N
+        tableInfoAntrian.setRowHeight(64);
+        tableInfoAntrian.setShowGrid(false);
+        tableInfoAntrian.setShowHorizontalLines(true);
+        tableInfoAntrian.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tableInfoAntrian);
+        tableInfoAntrian.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tableInfoAntrian.getColumnModel().getColumnCount() > 0) {
+            tableInfoAntrian.getColumnModel().getColumn(0).setResizable(false);
+            tableInfoAntrian.getColumnModel().getColumn(2).setMinWidth(0);
+            tableInfoAntrian.getColumnModel().getColumn(2).setMaxWidth(0);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,11 +110,11 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, 960, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, 544, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -134,11 +140,23 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         });
     }
 
+    private void showTable() {
+        controllerAntrianPublik.getAll();
+        tableInfoAntrian.getColumnModel().getColumn(0).setMinWidth(0);
+        tableInfoAntrian.getColumnModel().getColumn(0).setMaxWidth(0);
+    }
+
+    public JTable getTableData() {
+        return tableInfoAntrian;
+    }
+
+    ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(this);
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable tableAntrian;
+    private javax.swing.JTable tableInfoAntrian;
     // End of variables declaration//GEN-END:variables
 }

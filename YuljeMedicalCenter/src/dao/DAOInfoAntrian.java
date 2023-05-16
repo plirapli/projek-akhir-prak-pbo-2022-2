@@ -57,4 +57,10 @@ public class DAOInfoAntrian implements InterfaceInfoAntrian {
         = "SELECT id_nomor_antrian AS id, d.nama AS \"dokter\", nomor\n"
         + "FROM nomor_antrian na\n"
         + "INNER JOIN dokter d ON na.id_dokter = d.id_dokter;";
+
+    final String getAllPublic
+        = "SELECT d.nama AS \"dokter\", nomor "
+        + "FROM nomor_antrian na\n"
+        + "INNER JOIN dokter d ON na.id_dokter = d.id_dokter;";
+;
 }
