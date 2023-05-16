@@ -11,22 +11,22 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Muhammad Rafli
  */
-public class TableModelAntrian extends AbstractTableModel {
+public class TableModelInfoAntrian extends AbstractTableModel {
 
-    List<ModelAntrian> listAntrian;
+    List<ModelInfoAntrian> listInfoAntrian;
 
-    public TableModelAntrian(List<ModelAntrian> listAntrian) {
-        this.listAntrian = listAntrian;
+    public TableModelInfoAntrian(List<ModelInfoAntrian> listInfoAntrian) {
+        this.listInfoAntrian = listInfoAntrian;
     }
 
     @Override
     public int getRowCount() {
-        return listAntrian.size();
+        return listInfoAntrian.size();
     }
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 3;
     }
 
     @Override
@@ -37,10 +37,6 @@ public class TableModelAntrian extends AbstractTableModel {
             case 1:
                 return "Dokter";
             case 2:
-                return "Pasien";
-            case 3:
-                return "Nomor RM";
-            case 4:
                 return "Nomor Antrian";
             default:
                 return null;
@@ -51,15 +47,11 @@ public class TableModelAntrian extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex + 1;
+                return listInfoAntrian.get(rowIndex).getId_nomor_antrian();
             case 1:
-                return listAntrian.get(rowIndex).getDokter();
+                return listInfoAntrian.get(rowIndex).getNama_dokter();
             case 2:
-                return listAntrian.get(rowIndex).getPasien();
-            case 3:
-                return listAntrian.get(rowIndex).getNomor_rm();
-            case 4:
-                return listAntrian.get(rowIndex).getNomor_antrian();
+                return listInfoAntrian.get(rowIndex).getNomor();
             default:
                 return null;
         }

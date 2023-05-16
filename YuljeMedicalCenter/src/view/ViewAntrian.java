@@ -5,9 +5,9 @@
 package view;
 
 import controller.ControllerAntrian;
+import controller.ControllerInfoAntrian;
 import helper.LookAndFeel;
 import javax.swing.JTable;
-import javax.swing.UIManager;
 
 /**
  *
@@ -21,6 +21,7 @@ public class ViewAntrian extends javax.swing.JFrame {
     public ViewAntrian() {
         initComponents();
         controllerAntrian.getAll();
+        controllerInfoAntrian.getAll();
     }
 
     /**
@@ -39,7 +40,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelNomorAntrian = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tableInfoAntrian = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         textDokter = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -47,7 +48,6 @@ public class ViewAntrian extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         textNomorAntrian = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         panelDaftarAntrian = new javax.swing.JPanel();
@@ -107,8 +107,8 @@ public class ViewAntrian extends javax.swing.JFrame {
 
         panelNomorAntrian.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableInfoAntrian.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        tableInfoAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -140,8 +140,8 @@ public class ViewAntrian extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setShowGrid(true);
-        jScrollPane2.setViewportView(jTable2);
+        tableInfoAntrian.setShowGrid(true);
+        jScrollPane2.setViewportView(tableInfoAntrian);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel2.setText("Informasi Antrian");
@@ -169,23 +169,10 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(63, 122, 154));
-        jButton5.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Sebelumnya");
-        jButton5.setToolTipText("");
-        jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setBackground(new java.awt.Color(63, 122, 154));
+        jButton6.setBackground(new java.awt.Color(197, 247, 224));
         jButton6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Berikutnya");
+        jButton6.setForeground(new java.awt.Color(54, 111, 85));
+        jButton6.setText("Selesai");
         jButton6.setToolTipText("");
         jButton6.setBorder(null);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -218,12 +205,8 @@ public class ViewAntrian extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(textNomorAntrian)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNomorAntrianLayout.createSequentialGroup()
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -248,9 +231,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 83, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -299,7 +280,7 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -427,10 +408,6 @@ public class ViewAntrian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -454,18 +431,22 @@ public class ViewAntrian extends javax.swing.JFrame {
         });
     }
 
-    public JTable getTableData() {
+    public JTable getTableAntrianData() {
         return tableAntrian;
     }
-    
+
+    public JTable getTableInfoAntrianData() {
+        return tableInfoAntrian;
+    }
+
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
+    ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -477,12 +458,12 @@ public class ViewAntrian extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelDaftarAntrian;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelNomorAntrian;
     private javax.swing.JTable tableAntrian;
+    private javax.swing.JTable tableInfoAntrian;
     private javax.swing.JLabel textDokter;
     private javax.swing.JLabel textNomorAntrian;
     // End of variables declaration//GEN-END:variables

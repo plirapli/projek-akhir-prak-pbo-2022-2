@@ -16,6 +16,7 @@ import view.ViewAntrian;
  * @author Muhammad Rafli
  */
 public class ControllerAntrian {
+
     ViewAntrian view;
     InterfaceAntrian implementAntrian;
     List<ModelAntrian> listAntrian;
@@ -28,6 +29,6 @@ public class ControllerAntrian {
     public void getAll() {
         listAntrian = implementAntrian.getAll();
         TableModelAntrian tableAntrian = new TableModelAntrian(listAntrian);
-        view.getTableData().setModel(tableAntrian);
+        view.getTableAntrianData().setModel(tableAntrian);
     }
 }
