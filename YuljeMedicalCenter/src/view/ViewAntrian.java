@@ -4,7 +4,9 @@
  */
 package view;
 
-import com.formdev.flatlaf.FlatLightLaf;
+import controller.ControllerAntrian;
+import helper.LookAndFeel;
+import javax.swing.JTable;
 import javax.swing.UIManager;
 
 /**
@@ -18,6 +20,7 @@ public class ViewAntrian extends javax.swing.JFrame {
      */
     public ViewAntrian() {
         initComponents();
+        controllerAntrian.getAll();
     }
 
     /**
@@ -49,7 +52,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         panelDaftarAntrian = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableAntrian = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -195,7 +198,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(63, 122, 154));
         jButton7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Tampilkan Antrian");
+        jButton7.setText("Tampilkan Antrian Publik");
 
         javax.swing.GroupLayout panelNomorAntrianLayout = new javax.swing.GroupLayout(panelNomorAntrian);
         panelNomorAntrian.setLayout(panelNomorAntrianLayout);
@@ -206,7 +209,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                 .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelNomorAntrianLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton7))
                     .addGroup(panelNomorAntrianLayout.createSequentialGroup()
                         .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -261,8 +264,8 @@ public class ViewAntrian extends javax.swing.JFrame {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(462, 408));
 
-        jTable1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableAntrian.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        tableAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -296,7 +299,7 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -310,15 +313,11 @@ public class ViewAntrian extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setPreferredSize(new java.awt.Dimension(948, 520));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setShowGrid(true);
-        jTable1.setShowHorizontalLines(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Pasien");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("No. RM");
-        }
+        tableAntrian.setPreferredSize(new java.awt.Dimension(948, 520));
+        tableAntrian.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tableAntrian.setShowGrid(true);
+        tableAntrian.setShowHorizontalLines(false);
+        jScrollPane1.setViewportView(tableAntrian);
 
         jTextField1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -445,14 +444,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                UIManager.setLookAndFeel(new FlatLightLaf());
-            }
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewAntrian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        new LookAndFeel();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -461,6 +453,12 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         });
     }
+
+    public JTable getTableData() {
+        return tableAntrian;
+    }
+    
+    ControllerAntrian controllerAntrian = new ControllerAntrian(this);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -479,12 +477,12 @@ public class ViewAntrian extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelDaftarAntrian;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelNomorAntrian;
+    private javax.swing.JTable tableAntrian;
     private javax.swing.JLabel textDokter;
     private javax.swing.JLabel textNomorAntrian;
     // End of variables declaration//GEN-END:variables

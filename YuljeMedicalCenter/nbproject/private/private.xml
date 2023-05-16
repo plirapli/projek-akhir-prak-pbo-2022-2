@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewMain.java</file>
             <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewAntrian.java</file>
-            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewRiwayatAntrian.java</file>
-            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewDokter.java</file>
-            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/view/ViewAntrianPublik.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/model/TableModelDokter.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/model/TableModelAntrian.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/dao_interface/InterfaceAntrian.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/helper/LookAndFeel.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/dao/DAOAntrian.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/model/ModelAntrian.java</file>
+            <file>file:/D:/Code/projek-akhir-prak-pbo-2022-2/YuljeMedicalCenter/src/dao/DAODokter.java</file>
         </group>
     </open-files>
 </project-private>
