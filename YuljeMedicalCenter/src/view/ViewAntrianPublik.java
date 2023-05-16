@@ -49,7 +49,6 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         tableInfoAntrian.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         tableInfoAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asdasd",  new Integer(2), null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},

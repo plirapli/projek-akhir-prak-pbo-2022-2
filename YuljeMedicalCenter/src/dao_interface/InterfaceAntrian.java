@@ -13,8 +13,4 @@ import model.ModelAntrian;
  */
 public interface InterfaceAntrian {
     public List<ModelAntrian> getAll();
-    
-    public void update (ModelAntrian antrian);
-    
-    public void delete(int id);
 }

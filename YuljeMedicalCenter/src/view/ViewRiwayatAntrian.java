@@ -4,7 +4,9 @@
  */
 package view;
 
+import controller.ControllerRiwayatAntrian;
 import helper.LookAndFeel;
+import javax.swing.JTable;
 
 /**
  *
@@ -17,6 +19,7 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
      */
     public ViewRiwayatAntrian() {
         initComponents();
+        showTable();
     }
 
     /**
@@ -34,7 +37,7 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableRiwayatAntrian = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +70,7 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel1.setText("Riwayat Antrian");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableRiwayatAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -86,10 +89,9 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setPreferredSize(new java.awt.Dimension(307, 80));
-        jTable1.setShowGrid(true);
-        jTable1.setShowHorizontalLines(true);
-        jScrollPane1.setViewportView(jTable1);
+        tableRiwayatAntrian.setPreferredSize(new java.awt.Dimension(307, 80));
+        tableRiwayatAntrian.setShowGrid(true);
+        jScrollPane1.setViewportView(tableRiwayatAntrian);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,13 +155,22 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
         });
     }
 
+    private void showTable() {
+        ControllerRiwayatAntrian controllerRiwayatAntrian = new ControllerRiwayatAntrian(this);
+        controllerRiwayatAntrian.getAll();
+    }
+
+    public JTable getTableData() {
+        return tableRiwayatAntrian;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel panelHeader;
+    private javax.swing.JTable tableRiwayatAntrian;
     // End of variables declaration//GEN-END:variables
 }

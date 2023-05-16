@@ -47,16 +47,6 @@ public class DAOAntrian implements InterfaceAntrian {
         return listAntrian;
     }
 
-    @Override
-    public void update(ModelAntrian antrian) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     Connection connect;
     // SQL Query
     final String getAll

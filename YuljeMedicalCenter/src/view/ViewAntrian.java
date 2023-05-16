@@ -20,8 +20,7 @@ public class ViewAntrian extends javax.swing.JFrame {
      */
     public ViewAntrian() {
         initComponents();
-        controllerAntrian.getAll();
-        controllerInfoAntrian.getAll();
+        showTable();
     }
 
     /**
@@ -429,6 +428,11 @@ public class ViewAntrian extends javax.swing.JFrame {
                 new ViewAntrian().setVisible(true);
             }
         });
+    }
+
+    private void showTable() {
+        controllerAntrian.getAll();
+        controllerInfoAntrian.getAll();
     }
 
     public JTable getTableAntrianData() {
