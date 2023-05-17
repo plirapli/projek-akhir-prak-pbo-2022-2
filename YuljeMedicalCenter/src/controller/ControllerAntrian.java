@@ -26,7 +26,7 @@ public class ControllerAntrian {
         implementAntrian = new DAOAntrian();
     }
 
-    public void getAll() {
+    public void readAllData() {
         listAntrian = implementAntrian.getAll();
         TableModelAntrian tableAntrian = new TableModelAntrian(listAntrian);
         view.getTableAntrianData().setModel(tableAntrian);

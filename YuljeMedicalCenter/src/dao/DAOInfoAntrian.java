@@ -7,6 +7,7 @@ package dao;
 import dao_interface.InterfaceInfoAntrian;
 import helper.Connector;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,7 +49,21 @@ public class DAOInfoAntrian implements InterfaceInfoAntrian {
 
     @Override
     public void update(ModelInfoAntrian antrian) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement statement = null;
+        try {
+            statement = connect.prepareStatement(updateById);
+            statement.setInt(1, antrian.getNomor());
+            statement.setInt(2, antrian.getId_nomor_antrian());
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Update Failed! (" + e.getMessage() + ")");
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Update Failed! (" + ex.getMessage() + ")");
+            }
+        }
     }
 
     Connection connect;
@@ -62,5 +77,9 @@ public class DAOInfoAntrian implements InterfaceInfoAntrian {
         = "SELECT d.nama AS \"dokter\", nomor "
         + "FROM nomor_antrian na\n"
         + "INNER JOIN dokter d ON na.id_dokter = d.id_dokter;";
-;
+
+    final String updateById
+        = "UPDATE nomor_antrian "
+        + "SET nomor=? "
+        + "WHERE id_nomor_antrian=?;";
 }

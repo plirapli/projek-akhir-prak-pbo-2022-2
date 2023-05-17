@@ -47,8 +47,8 @@ public class ViewAntrian extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         textNomorAntrian = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnSelesai = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         panelDaftarAntrian = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -119,10 +119,18 @@ public class ViewAntrian extends javax.swing.JFrame {
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "No.", "Dokter", "Nomor Antrian"
+                "ID Dokter", "Dokter", "Nomor Antrian"
             }
         ) {
             Class[] types = new Class [] {
@@ -152,7 +160,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jLabel2.setText("Informasi Antrian");
 
         textDokter.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
-        textDokter.setText("dr. Komang");
+        textDokter.setText("-");
 
         jLabel4.setText("Nama Dokter");
 
@@ -161,29 +169,31 @@ public class ViewAntrian extends javax.swing.JFrame {
         textNomorAntrian.setFont(new java.awt.Font("Consolas", 0, 84)); // NOI18N
         textNomorAntrian.setText("0000");
 
-        jButton4.setBackground(new java.awt.Color(245, 195, 195));
-        jButton4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(228, 35, 35));
-        jButton4.setText("Reset");
-        jButton4.setToolTipText("");
-        jButton4.setBorder(null);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnReset.setBackground(new java.awt.Color(245, 195, 195));
+        btnReset.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(228, 35, 35));
+        btnReset.setText("Reset");
+        btnReset.setToolTipText("");
+        btnReset.setBorder(null);
+        btnReset.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnReset.setEnabled(false);
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnResetActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(197, 247, 224));
-        jButton6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(54, 111, 85));
-        jButton6.setText("Selesai");
-        jButton6.setToolTipText("");
-        jButton6.setBorder(null);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSelesai.setBackground(new java.awt.Color(197, 247, 224));
+        btnSelesai.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnSelesai.setForeground(new java.awt.Color(54, 111, 85));
+        btnSelesai.setText("Selesai");
+        btnSelesai.setToolTipText("");
+        btnSelesai.setBorder(null);
+        btnSelesai.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSelesai.setEnabled(false);
+        btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSelesaiActionPerformed(evt);
             }
         });
 
@@ -210,8 +220,8 @@ public class ViewAntrian extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(textNomorAntrian)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -234,9 +244,9 @@ public class ViewAntrian extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(textNomorAntrian)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 83, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -409,18 +419,20 @@ public class ViewAntrian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnResetActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelesaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        controllerInfoAntrian.updateDataSelesai();
+        controllerInfoAntrian.readAllData();
+    }//GEN-LAST:event_btnSelesaiActionPerformed
 
     private void tableInfoAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInfoAntrianMouseClicked
-        // TODO add your handling code here:
         int row = tableInfoAntrian.getSelectedRow();
         controllerInfoAntrian.selectField(row);
+        setBtnState();
     }//GEN-LAST:event_tableInfoAntrianMouseClicked
 
     /**
@@ -442,9 +454,20 @@ public class ViewAntrian extends javax.swing.JFrame {
         });
     }
 
+    private void setBtnState() {
+        String nama_dokter = getNamaDokter().getText();
+        if (!"-".equals(nama_dokter)) {
+            btnSelesai.setEnabled(true);
+            btnReset.setEnabled(true);
+        } else {
+            btnSelesai.setEnabled(false);
+            btnReset.setEnabled(false);
+        }
+    }
+
     private void showTable() {
-        controllerAntrian.getAll();
-        controllerInfoAntrian.getAll();
+        controllerAntrian.readAllData();
+        controllerInfoAntrian.readAllData();
     }
 
     public JTable getTableAntrianData() {
@@ -454,24 +477,33 @@ public class ViewAntrian extends javax.swing.JFrame {
     public JTable getTableInfoAntrianData() {
         return tableInfoAntrian;
     }
-    
+
     public JLabel getNamaDokter() {
         return textDokter;
     }
-    
+
     public JLabel getNomorAntrian() {
         return textNomorAntrian;
     }
 
+    public Integer getSelectedId_nomor_antrian() {
+        return selectedId_nomor_antrian;
+    }
+
+    public void setSelectedId_nomor_antrian(Integer selectedId_nomor_antrian) {
+        this.selectedId_nomor_antrian = selectedId_nomor_antrian;
+    }
+
+    private Integer selectedId_nomor_antrian;
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
     ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSelesai;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

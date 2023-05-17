@@ -26,13 +26,28 @@ public class ControllerInfoAntrian {
         implementInfoAntrian = new DAOInfoAntrian();
     }
 
-    public void getAll() {
+    public void readAllData() {
         listInfoAntrian = implementInfoAntrian.getAll();
         TableModelInfoAntrian tableInfoAntrian = new TableModelInfoAntrian(listInfoAntrian);
-        view.getTableInfoAntrianData().setModel(tableInfoAntrian);
+        view.getTableInfoAntrianData().setModel(tableInfoAntrian); // Masukkin data ke table
+    }
+
+    public void updateDataSelesai() {
+        // Ngambil data dari form trus masukkin ke model
+        ModelInfoAntrian antrian = new ModelInfoAntrian();
+        Integer nomor = Integer.valueOf(view.getNomorAntrian().getText()); // Konversi string pada text nomor ke int
+        nomor += 1; // Tambah 1 antrian
+        antrian.setId_nomor_antrian(view.getSelectedId_nomor_antrian());
+        antrian.setNomor(nomor);
+
+        // Masukkin model tadi ke db
+        implementInfoAntrian.update(antrian);
+        view.getNomorAntrian().setText(nomor.toString());
+//        JOptionPane.showMessageDialog(null, "Update Success");
     }
 
     public void selectField(int row) {
+        view.setSelectedId_nomor_antrian(listInfoAntrian.get(row).getId_nomor_antrian());
         view.getNamaDokter().setText(listInfoAntrian.get(row).getNama_dokter());
         view.getNomorAntrian().setText(listInfoAntrian.get(row).getNomor().toString());
     }
