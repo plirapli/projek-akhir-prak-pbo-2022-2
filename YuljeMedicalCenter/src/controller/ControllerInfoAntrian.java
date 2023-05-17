@@ -31,4 +31,9 @@ public class ControllerInfoAntrian {
         TableModelInfoAntrian tableInfoAntrian = new TableModelInfoAntrian(listInfoAntrian);
         view.getTableInfoAntrianData().setModel(tableInfoAntrian);
     }
+
+    public void selectField(int row) {
+        view.getNamaDokter().setText(listInfoAntrian.get(row).getNama_dokter());
+        view.getNomorAntrian().setText(listInfoAntrian.get(row).getNomor().toString());
+    }
 }

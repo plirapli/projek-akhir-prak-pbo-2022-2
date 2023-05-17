@@ -10,22 +10,22 @@ package model;
  */
 public class ModelInfoAntrian {
 
-    private int id_nomor_antrian, nomor;
+    private Integer id_nomor_antrian, nomor;
     private String nama_dokter;
 
-    public int getId_nomor_antrian() {
+    public Integer getId_nomor_antrian() {
         return id_nomor_antrian;
     }
 
-    public void setId_nomor_antrian(int id_nomor_antrian) {
+    public void setId_nomor_antrian(Integer id_nomor_antrian) {
         this.id_nomor_antrian = id_nomor_antrian;
     }
 
-    public int getNomor() {
+    public Integer getNomor() {
         return nomor;
     }
 
-    public void setNomor(int nomor) {
+    public void setNomor(Integer nomor) {
         this.nomor = nomor;
     }
 

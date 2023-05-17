@@ -7,6 +7,7 @@ package view;
 import controller.ControllerAntrian;
 import controller.ControllerInfoAntrian;
 import helper.LookAndFeel;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 
 /**
@@ -140,6 +141,11 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         });
         tableInfoAntrian.setShowGrid(true);
+        tableInfoAntrian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableInfoAntrianMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tableInfoAntrian);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
@@ -411,6 +417,12 @@ public class ViewAntrian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void tableInfoAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInfoAntrianMouseClicked
+        // TODO add your handling code here:
+        int row = tableInfoAntrian.getSelectedRow();
+        controllerInfoAntrian.selectField(row);
+    }//GEN-LAST:event_tableInfoAntrianMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -441,6 +453,14 @@ public class ViewAntrian extends javax.swing.JFrame {
 
     public JTable getTableInfoAntrianData() {
         return tableInfoAntrian;
+    }
+    
+    public JLabel getNamaDokter() {
+        return textDokter;
+    }
+    
+    public JLabel getNomorAntrian() {
+        return textNomorAntrian;
     }
 
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
