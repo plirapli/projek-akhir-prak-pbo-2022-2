@@ -56,5 +56,4 @@ public class TableModelInfoAntrian extends AbstractTableModel {
                 return null;
         }
     }
-
 }

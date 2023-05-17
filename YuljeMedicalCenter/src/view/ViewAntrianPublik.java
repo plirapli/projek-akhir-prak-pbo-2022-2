@@ -20,7 +20,8 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
      */
     public ViewAntrianPublik() {
         initComponents();
-        showTable();
+        controllerAntrianPublik.getAll();
+//        this.setVisible(true);
     }
 
     /**
@@ -137,12 +138,6 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
                 new ViewAntrianPublik().setVisible(true);
             }
         });
-    }
-
-    private void showTable() {
-        controllerAntrianPublik.getAll();
-        tableInfoAntrian.getColumnModel().getColumn(0).setMinWidth(0);
-        tableInfoAntrian.getColumnModel().getColumn(0).setMaxWidth(0);
     }
 
     public JTable getTableData() {

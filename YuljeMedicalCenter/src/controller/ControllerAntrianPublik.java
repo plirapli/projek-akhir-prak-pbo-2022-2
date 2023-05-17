@@ -30,5 +30,9 @@ public class ControllerAntrianPublik {
         listInfoAntrian = implementInfoAntrian.getAll();
         TableModelInfoAntrian tableInfoAntrian = new TableModelInfoAntrian(listInfoAntrian);
         view.getTableData().setModel(tableInfoAntrian);
+
+        // Nyembunyiin kolom id_dokter
+        view.getTableData().getColumnModel().getColumn(0).setMinWidth(0);
+        view.getTableData().getColumnModel().getColumn(0).setMaxWidth(0);
     }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 import model.ModelInfoAntrian;
 import model.TableModelInfoAntrian;
 import view.ViewAntrian;
+import view.ViewAntrianPublik;
 
 /**
  *
@@ -18,6 +19,7 @@ import view.ViewAntrian;
 public class ControllerInfoAntrian {
 
     ViewAntrian view;
+    ViewAntrianPublik viewAntrianPublik;
     InterfaceInfoAntrian implementInfoAntrian;
     List<ModelInfoAntrian> listInfoAntrian;
 
@@ -44,7 +46,7 @@ public class ControllerInfoAntrian {
         implementInfoAntrian.update(antrian);
         view.getNomorAntrian().setText(nomor.toString());
     }
-    
+
     public void updateDataReset() {
         // Ngambil data dari form trus masukkin ke model
         ModelInfoAntrian antrian = new ModelInfoAntrian();

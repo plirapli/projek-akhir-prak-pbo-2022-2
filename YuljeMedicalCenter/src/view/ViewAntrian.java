@@ -5,6 +5,7 @@
 package view;
 
 import controller.ControllerAntrian;
+import controller.ControllerAntrianPublik;
 import controller.ControllerInfoAntrian;
 import helper.LookAndFeel;
 import javax.swing.JLabel;
@@ -36,7 +37,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelHeader = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnRiwayatAntrian = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelNomorAntrian = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -71,16 +72,16 @@ public class ViewAntrian extends javax.swing.JFrame {
         jButton2.setText("Kembali");
         jButton2.setBorder(null);
 
-        jButton3.setBackground(new java.awt.Color(214, 214, 214));
-        jButton3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/history-rounded.png"))); // NOI18N
-        jButton3.setText("Riwayat Antrian");
-        jButton3.setToolTipText("");
-        jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnRiwayatAntrian.setBackground(new java.awt.Color(214, 214, 214));
+        btnRiwayatAntrian.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnRiwayatAntrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/history-rounded.png"))); // NOI18N
+        btnRiwayatAntrian.setText("Riwayat Antrian");
+        btnRiwayatAntrian.setToolTipText("");
+        btnRiwayatAntrian.setBorder(null);
+        btnRiwayatAntrian.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRiwayatAntrian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnRiwayatAntrianActionPerformed(evt);
             }
         });
 
@@ -91,14 +92,14 @@ public class ViewAntrian extends javax.swing.JFrame {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -415,20 +416,23 @@ public class ViewAntrian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnRiwayatAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatAntrianActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        viewAntrianPublik.setVisible(true);
+    }//GEN-LAST:event_btnRiwayatAntrianActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         controllerInfoAntrian.updateDataReset();
         controllerInfoAntrian.readAllData();
+        controllerAntrianPublik.getAll();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelesaiActionPerformed
         // TODO add your handling code here:
         controllerInfoAntrian.updateDataSelesai();
         controllerInfoAntrian.readAllData();
+        controllerAntrianPublik.getAll();
     }//GEN-LAST:event_btnSelesaiActionPerformed
 
     private void tableInfoAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInfoAntrianMouseClicked
@@ -496,16 +500,18 @@ public class ViewAntrian extends javax.swing.JFrame {
         this.selectedId_nomor_antrian = selectedId_nomor_antrian;
     }
 
+    private ViewAntrianPublik viewAntrianPublik = new ViewAntrianPublik();
     private Integer selectedId_nomor_antrian;
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
     ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
+    ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(viewAntrianPublik);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnRiwayatAntrian;
     private javax.swing.JButton btnSelesai;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
