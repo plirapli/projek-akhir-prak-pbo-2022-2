@@ -4,9 +4,6 @@
  */
 package view;
 
-import com.formdev.flatlaf.FlatLightLaf;
-import javax.swing.UIManager;
-
 /**
  *
  * @author Muhammad Rafli
@@ -17,6 +14,7 @@ public class ViewMainMenu extends javax.swing.JFrame {
      * Creates new form ViewMain
      */
     public ViewMainMenu() {
+        this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
     }
@@ -39,7 +37,9 @@ public class ViewMainMenu extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setLocation(new java.awt.Point(0, 0));
+        setLocationByPlatform(true);
+        setSize(new java.awt.Dimension(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,6 +111,7 @@ public class ViewMainMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInformasiDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformasiDokterActionPerformed
@@ -124,26 +125,6 @@ public class ViewMainMenu extends javax.swing.JFrame {
       new ViewAntrian();
       this.dispose();
   }//GEN-LAST:event_btnInformasiAntrianActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-
-        new FlatLightLaf();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewMainMenu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInformasiAntrian;

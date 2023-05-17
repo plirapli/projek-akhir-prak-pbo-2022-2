@@ -19,6 +19,7 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
      * Creates new form ViewAntrianPublik
      */
     public ViewAntrianPublik() {
+        this.setLocationRelativeTo(null);
         initComponents();
         controllerAntrianPublik.getAll();
 //        this.setVisible(true);
@@ -118,6 +119,7 @@ public class ViewAntrianPublik extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

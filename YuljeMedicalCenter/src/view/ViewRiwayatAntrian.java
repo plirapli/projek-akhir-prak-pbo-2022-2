@@ -18,6 +18,7 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
      * Creates new form ViewRiwayatAntrian
      */
     public ViewRiwayatAntrian() {
+        this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
         showTable();
@@ -139,6 +140,7 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed

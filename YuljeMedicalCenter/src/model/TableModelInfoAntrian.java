@@ -33,7 +33,7 @@ public class TableModelInfoAntrian extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "ID Dokter";
+                return "ID Nomor Antrian";
             case 1:
                 return "Dokter";
             case 2:

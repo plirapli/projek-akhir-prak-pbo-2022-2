@@ -8,6 +8,8 @@ import controller.ControllerDokter;
 import helper.LookAndFeel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -21,9 +23,11 @@ public class ViewDokter extends javax.swing.JFrame {
      * Creates new form ViewUser
      */
     public ViewDokter() {
+        this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
         controllerDokter.readData();
+        textfieldListener();
     }
 
     /**
@@ -56,9 +60,8 @@ public class ViewDokter extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(640, 360));
-        setResizable(false);
+        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(640, 360));
@@ -165,11 +168,14 @@ public class ViewDokter extends javax.swing.JFrame {
             }
         });
 
-        btnSimpan.setBackground(new java.awt.Color(23, 70, 162));
+        btnSimpan.setBackground(new java.awt.Color(63, 122, 154));
         btnSimpan.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
         btnSimpan.setText("Simpan");
+        btnSimpan.setBorder(null);
         btnSimpan.setBorderPainted(false);
+        btnSimpan.setEnabled(false);
+        btnSimpan.setFocusCycleRoot(true);
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpanActionPerformed(evt);
@@ -214,10 +220,6 @@ public class ViewDokter extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +239,11 @@ public class ViewDokter extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -250,7 +256,7 @@ public class ViewDokter extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,7 +279,7 @@ public class ViewDokter extends javax.swing.JFrame {
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
         );
 
@@ -293,6 +299,7 @@ public class ViewDokter extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaActionPerformed
@@ -340,22 +347,80 @@ public class ViewDokter extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void textfieldListener() {
+        getNamaData().getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handleChange();
+            }
 
-        new LookAndFeel();
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handleChange();
+            }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new ViewDokter().setVisible(true);
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            private void handleChange() {
+                String inputNama = getNamaData().getText();
+                String inputSpesialisasi = getSpesialisasiData().getText();
+
+                // Ngecek input kosong apa engga
+                if (!"".equals(inputNama) && !"".equals(inputSpesialisasi)) {
+                    btnSimpan.setEnabled(true);
+                } else {
+                    btnSimpan.setEnabled(false);
+                }
+            }
         });
+
+        getSpesialisasiData().getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            private void handleChange() {
+                String inputNama = getNamaData().getText();
+                String inputSpesialisasi = getSpesialisasiData().getText();
+
+                // Ngecek input kosong apa engga
+                if (!"".equals(inputNama) && !"".equals(inputSpesialisasi)) {
+                    btnSimpan.setEnabled(true);
+                } else {
+                    btnSimpan.setEnabled(false);
+                }
+            }
+        });
+    }
+
+    public JTable getTabelData() {
+        return tabelDokter;
+    }
+
+    public JTextField getId_dokterData() {
+        return idField;
+    }
+
+    public JTextField getNamaData() {
+        return fieldNama;
+    }
+
+    public JTextField getSpesialisasiData() {
+        return fieldSpesialisasi;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -376,20 +441,4 @@ public class ViewDokter extends javax.swing.JFrame {
     private javax.swing.JPanel panelHeader;
     private javax.swing.JTable tabelDokter;
     // End of variables declaration//GEN-END:variables
-
-    public JTable getTabelData() {
-        return tabelDokter;
-    }
-
-    public JTextField getId_dokterData() {
-        return idField;
-    }
-
-    public JTextField getNamaData() {
-        return fieldNama;
-    }
-
-    public JTextField getSpesialisasiData() {
-        return fieldSpesialisasi;
-    }
 }
