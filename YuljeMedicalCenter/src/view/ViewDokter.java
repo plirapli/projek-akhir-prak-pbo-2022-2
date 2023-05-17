@@ -28,6 +28,7 @@ public class ViewDokter extends javax.swing.JFrame {
         this.setVisible(true);
         controllerDokter.readData();
         textfieldListener();
+        idFieldListener();
     }
 
     /**
@@ -52,7 +53,6 @@ public class ViewDokter extends javax.swing.JFrame {
         btnHapus = new javax.swing.JButton();
         btnSimpan = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         idField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
@@ -146,7 +146,9 @@ public class ViewDokter extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        tabelDokter.setColumnSelectionAllowed(true);
+        tabelDokter.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelDokter.setShowGrid(false);
+        tabelDokter.setShowHorizontalLines(true);
         tabelDokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelDokterMouseClicked(evt);
@@ -162,6 +164,7 @@ public class ViewDokter extends javax.swing.JFrame {
         btnHapus.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(228, 35, 35));
         btnHapus.setText("Hapus");
+        btnHapus.setEnabled(false);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
@@ -171,7 +174,7 @@ public class ViewDokter extends javax.swing.JFrame {
         btnSimpan.setBackground(new java.awt.Color(63, 122, 154));
         btnSimpan.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
-        btnSimpan.setText("Simpan");
+        btnSimpan.setText("Tambah");
         btnSimpan.setBorder(null);
         btnSimpan.setBorderPainted(false);
         btnSimpan.setEnabled(false);
@@ -192,17 +195,8 @@ public class ViewDokter extends javax.swing.JFrame {
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(232, 232, 232));
-        btnEdit.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(153, 153, 153));
-        btnEdit.setText("Edit");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
         idField.setEditable(false);
+        idField.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idFieldActionPerformed(evt);
@@ -225,14 +219,12 @@ public class ViewDokter extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(fieldNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnSimpan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSimpan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(fieldSpesialisasi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,8 +264,6 @@ public class ViewDokter extends javax.swing.JFrame {
                             .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,20 +308,20 @@ public class ViewDokter extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
-        controllerDokter.insertData();
+        String id_dokter = getId_dokterData().getText();
+        if ("".equals(id_dokter)) {
+            controllerDokter.insertData();
+        } else {
+            controllerDokter.updateData();
+        }
         controllerDokter.readData();
+        controllerDokter.reset();
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void tabelDokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDokterMouseClicked
         int row = tabelDokter.getSelectedRow();
         controllerDokter.selectField(row);
     }//GEN-LAST:event_tabelDokterMouseClicked
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        controllerDokter.updateData();
-        controllerDokter.readData();
-        controllerDokter.reset();
-    }//GEN-LAST:event_btnEditActionPerformed
 
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
@@ -347,7 +337,40 @@ public class ViewDokter extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
 
+    private void idFieldListener() {
+        getId_dokterData().getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handleChange();
+            }
+
+            private void handleChange() {
+                String id = getId_dokterData().getText();
+                System.out.println(id);
+                // Ngecek input kosong apa engga
+                if (!"".equals(id)) {
+                    btnSimpan.setText("Simpan");
+                    btnHapus.setEnabled(true);
+                } else {
+                    btnSimpan.setText("Tambah");
+                    btnHapus.setEnabled(false);
+                }
+            }
+        });
+    }
+
     private void textfieldListener() {
+
         getNamaData().getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -424,7 +447,6 @@ public class ViewDokter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnReset;
