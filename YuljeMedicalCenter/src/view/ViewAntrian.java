@@ -22,6 +22,7 @@ public class ViewAntrian extends javax.swing.JFrame {
      */
     public ViewAntrian() {
         initComponents();
+        this.setVisible(true);
         showTable();
     }
 
@@ -36,7 +37,7 @@ public class ViewAntrian extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelHeader = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
         btnRiwayatAntrian = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelNomorAntrian = new javax.swing.JPanel();
@@ -50,7 +51,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         textNomorAntrian = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
         btnSelesai = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnAntrianPublik = new javax.swing.JButton();
         panelDaftarAntrian = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAntrian = new javax.swing.JTable();
@@ -66,11 +67,16 @@ public class ViewAntrian extends javax.swing.JFrame {
         panelHeader.setBackground(new java.awt.Color(230, 230, 230));
         panelHeader.setPreferredSize(new java.awt.Dimension(960, 40));
 
-        jButton2.setBackground(new java.awt.Color(214, 214, 214));
-        jButton2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/arrow-back-circle-outline.png"))); // NOI18N
-        jButton2.setText("Kembali");
-        jButton2.setBorder(null);
+        btnKembali.setBackground(new java.awt.Color(214, 214, 214));
+        btnKembali.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnKembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/arrow-back-circle-outline.png"))); // NOI18N
+        btnKembali.setText("Kembali");
+        btnKembali.setBorder(null);
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
 
         btnRiwayatAntrian.setBackground(new java.awt.Color(214, 214, 214));
         btnRiwayatAntrian.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -90,17 +96,14 @@ public class ViewAntrian extends javax.swing.JFrame {
         panelHeaderLayout.setHorizontalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(panelHeaderLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(btnRiwayatAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnKembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
@@ -198,10 +201,15 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(63, 122, 154));
-        jButton7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Tampilkan Antrian Publik");
+        btnAntrianPublik.setBackground(new java.awt.Color(63, 122, 154));
+        btnAntrianPublik.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnAntrianPublik.setForeground(new java.awt.Color(255, 255, 255));
+        btnAntrianPublik.setText("Tampilkan Antrian Publik");
+        btnAntrianPublik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAntrianPublikActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNomorAntrianLayout = new javax.swing.GroupLayout(panelNomorAntrian);
         panelNomorAntrian.setLayout(panelNomorAntrianLayout);
@@ -212,7 +220,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                 .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelNomorAntrianLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton7))
+                        .addComponent(btnAntrianPublik))
                     .addGroup(panelNomorAntrianLayout.createSequentialGroup()
                         .addGroup(panelNomorAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -251,7 +259,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                         .addGap(0, 83, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAntrianPublik, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -382,7 +390,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -394,14 +402,14 @@ public class ViewAntrian extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -418,7 +426,8 @@ public class ViewAntrian extends javax.swing.JFrame {
 
     private void btnRiwayatAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatAntrianActionPerformed
         // TODO add your handling code here:
-        viewAntrianPublik.setVisible(true);
+        new ViewRiwayatAntrian();
+        this.dispose();
     }//GEN-LAST:event_btnRiwayatAntrianActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -440,6 +449,17 @@ public class ViewAntrian extends javax.swing.JFrame {
         controllerInfoAntrian.selectField(row);
         setBtnState();
     }//GEN-LAST:event_tableInfoAntrianMouseClicked
+
+    private void btnAntrianPublikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAntrianPublikActionPerformed
+        // TODO add your handling code here:
+        viewAntrianPublik.setVisible(true);
+    }//GEN-LAST:event_btnAntrianPublikActionPerformed
+
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        // TODO add your handling code here:
+        new ViewMainMenu();
+        this.dispose();
+    }//GEN-LAST:event_btnKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,12 +527,12 @@ public class ViewAntrian extends javax.swing.JFrame {
     ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(viewAntrianPublik);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAntrianPublik;
+    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRiwayatAntrian;
     private javax.swing.JButton btnSelesai;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

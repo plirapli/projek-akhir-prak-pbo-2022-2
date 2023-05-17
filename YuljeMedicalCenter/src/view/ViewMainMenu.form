@@ -56,8 +56,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="jButton1" alignment="2" min="-2" pref="208" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="2" min="-2" pref="208" max="-2" attributes="0"/>
+                              <Component id="btnInformasiDokter" alignment="2" min="-2" pref="208" max="-2" attributes="0"/>
+                              <Component id="btnInformasiAntrian" alignment="2" min="-2" pref="208" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                       </Group>
@@ -74,16 +74,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btnInformasiDokter" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="btnInformasiAntrian" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace pref="120" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnInformasiDokter">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9a" green="7a" red="3f" type="rgb"/>
@@ -107,10 +107,10 @@
             <Property name="iconTextGap" type="int" value="8"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInformasiDokterActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btnInformasiAntrian">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9a" green="7a" red="3f" type="rgb"/>
@@ -131,7 +131,7 @@
             <Property name="iconTextGap" type="int" value="8"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInformasiAntrianActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

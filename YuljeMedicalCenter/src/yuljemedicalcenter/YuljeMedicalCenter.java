@@ -4,7 +4,8 @@
  */
 package yuljemedicalcenter;
 
-import helper.Connector;
+import helper.LookAndFeel;
+import view.ViewMainMenu;
 
 /**
  *
@@ -17,7 +18,8 @@ public class YuljeMedicalCenter {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Connector.getConnection();
+        new LookAndFeel();
+        new ViewMainMenu();
     }
-    
+
 }

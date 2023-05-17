@@ -22,6 +22,7 @@ public class ViewDokter extends javax.swing.JFrame {
      */
     public ViewDokter() {
         initComponents();
+        this.setVisible(true);
         controllerDokter.readData();
     }
 
@@ -36,7 +37,7 @@ public class ViewDokter extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelHeader = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
         fieldNama = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -66,25 +67,30 @@ public class ViewDokter extends javax.swing.JFrame {
         panelHeader.setBackground(new java.awt.Color(230, 230, 230));
         panelHeader.setPreferredSize(new java.awt.Dimension(960, 40));
 
-        jButton2.setBackground(new java.awt.Color(214, 214, 214));
-        jButton2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/arrow-back-circle-outline.png"))); // NOI18N
-        jButton2.setText("Kembali");
-        jButton2.setBorder(null);
+        btnKembali.setBackground(new java.awt.Color(214, 214, 214));
+        btnKembali.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnKembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/arrow-back-circle-outline.png"))); // NOI18N
+        btnKembali.setText("Kembali");
+        btnKembali.setBorder(null);
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
         panelHeader.setLayout(panelHeaderLayout);
         panelHeaderLayout.setHorizontalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(872, Short.MAX_VALUE))
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHeaderLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         fieldNama.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -328,6 +334,12 @@ public class ViewDokter extends javax.swing.JFrame {
         controllerDokter.reset();
     }//GEN-LAST:event_btnResetActionPerformed
 
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        // TODO add your handling code here:
+        new ViewMainMenu();
+        this.dispose();
+    }//GEN-LAST:event_btnKembaliActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -349,12 +361,12 @@ public class ViewDokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JTextField fieldNama;
     private javax.swing.JTextField fieldSpesialisasi;
     private javax.swing.JTextField idField;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

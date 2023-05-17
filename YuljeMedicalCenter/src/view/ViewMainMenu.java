@@ -11,13 +11,14 @@ import javax.swing.UIManager;
  *
  * @author Muhammad Rafli
  */
-public class ViewMain extends javax.swing.JFrame {
+public class ViewMainMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewMain
      */
-    public ViewMain() {
+    public ViewMainMenu() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -31,8 +32,8 @@ public class ViewMain extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnInformasiDokter = new javax.swing.JButton();
+        btnInformasiAntrian = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -42,30 +43,30 @@ public class ViewMain extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(63, 122, 154));
-        jButton1.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/doctor.png"))); // NOI18N
-        jButton1.setText("Informasi Dokter");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setIconTextGap(8);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInformasiDokter.setBackground(new java.awt.Color(63, 122, 154));
+        btnInformasiDokter.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        btnInformasiDokter.setForeground(new java.awt.Color(255, 255, 255));
+        btnInformasiDokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/doctor.png"))); // NOI18N
+        btnInformasiDokter.setText("Informasi Dokter");
+        btnInformasiDokter.setBorder(null);
+        btnInformasiDokter.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnInformasiDokter.setIconTextGap(8);
+        btnInformasiDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInformasiDokterActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(63, 122, 154));
-        jButton2.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/people-queue-24-regular.png"))); // NOI18N
-        jButton2.setText("Informasi Antrian");
-        jButton2.setBorder(null);
-        jButton2.setIconTextGap(8);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInformasiAntrian.setBackground(new java.awt.Color(63, 122, 154));
+        btnInformasiAntrian.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        btnInformasiAntrian.setForeground(new java.awt.Color(255, 255, 255));
+        btnInformasiAntrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/people-queue-24-regular.png"))); // NOI18N
+        btnInformasiAntrian.setText("Informasi Antrian");
+        btnInformasiAntrian.setBorder(null);
+        btnInformasiAntrian.setIconTextGap(8);
+        btnInformasiAntrian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInformasiAntrianActionPerformed(evt);
             }
         });
 
@@ -80,8 +81,8 @@ public class ViewMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnInformasiDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInformasiAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(216, 216, 216))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -92,9 +93,9 @@ public class ViewMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInformasiDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInformasiAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
@@ -112,13 +113,17 @@ public class ViewMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInformasiDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformasiDokterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new ViewDokter();
+        this.dispose();
+    }//GEN-LAST:event_btnInformasiDokterActionPerformed
 
-  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  private void btnInformasiAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformasiAntrianActionPerformed
       // TODO add your handling code here:
-  }//GEN-LAST:event_jButton2ActionPerformed
+      new ViewAntrian();
+      this.dispose();
+  }//GEN-LAST:event_btnInformasiAntrianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,20 +134,20 @@ public class ViewMain extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         new FlatLightLaf();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewMain().setVisible(true);
+                new ViewMainMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnInformasiAntrian;
+    private javax.swing.JButton btnInformasiDokter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
