@@ -35,7 +35,7 @@ public class ControllerInfoAntrian {
     public void updateDataSelesai() {
         // Ngambil data dari form trus masukkin ke model
         ModelInfoAntrian antrian = new ModelInfoAntrian();
-        Integer nomor = Integer.valueOf(view.getNomorAntrian().getText()); // Konversi string pada text nomor ke int
+        Integer nomor = Integer.valueOf(view.getNomorAntrian().getText()); // Konversi string pada text nomor ke model
         nomor += 1; // Tambah 1 antrian
         antrian.setId_nomor_antrian(view.getSelectedId_nomor_antrian());
         antrian.setNomor(nomor);
@@ -43,7 +43,17 @@ public class ControllerInfoAntrian {
         // Masukkin model tadi ke db
         implementInfoAntrian.update(antrian);
         view.getNomorAntrian().setText(nomor.toString());
-//        JOptionPane.showMessageDialog(null, "Update Success");
+    }
+    
+    public void updateDataReset() {
+        // Ngambil data dari form trus masukkin ke model
+        ModelInfoAntrian antrian = new ModelInfoAntrian();
+        antrian.setId_nomor_antrian(view.getSelectedId_nomor_antrian());
+        antrian.setNomor(0);
+
+        // Masukkin model tadi ke db
+        implementInfoAntrian.update(antrian);
+        view.getNomorAntrian().setText("0");
     }
 
     public void selectField(int row) {
