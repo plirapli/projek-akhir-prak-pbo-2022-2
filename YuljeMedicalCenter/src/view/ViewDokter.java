@@ -356,7 +356,6 @@ public class ViewDokter extends javax.swing.JFrame {
 
             private void handleChange() {
                 String id = getId_dokterData().getText();
-                System.out.println(id);
                 // Ngecek input kosong apa engga
                 if (!"".equals(id)) {
                     btnSimpan.setText("Simpan");

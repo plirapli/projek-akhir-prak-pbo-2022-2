@@ -34,12 +34,12 @@ public class ControllerDokter {
     }
 
     public void insertData() {
-        // mengambil data dari form dan Masukkin ke db
+        // mengambil data dari form dan masukkin ke db
         ModelDokter dokter = new ModelDokter();
         dokter.setNama(viewDokter.getNamaData().getText());
         dokter.setSpesialis(viewDokter.getSpesialisasiData().getText());
         interfaceDokter.insert(dokter);
-        JOptionPane.showMessageDialog(null, "Input Success");
+        JOptionPane.showMessageDialog(null, "Berhasil menambahkan " + dokter.getNama() + " ke dalam daftar.");
     }
 
     public void selectField(int row) {
@@ -49,8 +49,7 @@ public class ControllerDokter {
     }
 
     public void updateData() {
-
-        // mengambil data dari form dan Masukkin ke db
+        // mengambil data dari form dan masukkin ke db
         ModelDokter dokter = new ModelDokter();
         dokter.setNama(viewDokter.getNamaData().getText());
         dokter.setSpesialis(viewDokter.getSpesialisasiData().getText());

@@ -24,12 +24,16 @@ public class DAODokter implements InterfaceDokter {
     public DAODokter() {
         connect = Connector.getConnection();
     }
-    
+
     Connection connect;
+
+    // Queries
     String read = "SELECT * FROM Dokter;";
     String insert = "INSERT INTO Dokter (nama, spesialisasi) VALUES (?,?);";
+    String insertInfoAntrian = "INSERT INTO nomor_antrian (id_dokter, nomor) VALUES (?, 0);";
     String update = "UPDATE dokter set nama=?, spesialisasi=? WHERE id_dokter=?;";
     String delete = "DELETE FROM dokter WHERE id_dokter=?;";
+
     // Get all data dokter
     @Override
     public List<ModelDokter> getAll() {
@@ -52,26 +56,37 @@ public class DAODokter implements InterfaceDokter {
         return listDokter;
     }
 
-    // Add data dokter
+    // Insert data dokter
     @Override
     public void insert(ModelDokter in) {
         PreparedStatement statement = null;
         try {
-            statement = connect.prepareStatement(insert);
+            statement = connect.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, in.getNama());
             statement.setString(2, in.getSpesialis());
-            statement.execute();
+
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows > 0) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int generatedId = generatedKeys.getInt(1);
+                    try {
+                        // Insert data baru ke nomor antrian
+                        statement = connect.prepareStatement(insertInfoAntrian);
+                        statement.setInt(1, generatedId);
+                        statement.execute();
+                        statement.close();
+                    } catch (SQLException e) {
+                        System.out.println("Input Failed! (" + e.getMessage() + ")");
+                    }
+                }
+            }
         } catch (SQLException e) {
             System.out.println("Input Failed! (" + e.getMessage() + ")");
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException ex) {
-                System.out.println("Input Failed!");
-            }
         }
     }
-    
+
+    // Update data dokter
     @Override
     public void update(ModelDokter up) {
         PreparedStatement statement = null;
@@ -84,7 +99,7 @@ public class DAODokter implements InterfaceDokter {
         } catch (SQLException e) {
             System.out.println("update Failed! (" + e.getMessage() + ")");
         } finally {
-            try { 
+            try {
                 statement.close();
             } catch (SQLException ex) {
                 System.out.println("update Failed!");
@@ -92,9 +107,10 @@ public class DAODokter implements InterfaceDokter {
         }
     }
 
+    // Delete data dokter
     @Override
     public void delete(int id) {
-          PreparedStatement statement = null;
+        PreparedStatement statement = null;
         try {
             statement = connect.prepareStatement(delete);
             statement.setInt(1, id);
@@ -102,7 +118,7 @@ public class DAODokter implements InterfaceDokter {
         } catch (SQLException e) {
             System.out.println("Delete Failed! (" + e.getMessage() + ")");
         } finally {
-            try { 
+            try {
                 statement.close();
             } catch (SQLException ex) {
                 System.out.println("Delete Failed!");
