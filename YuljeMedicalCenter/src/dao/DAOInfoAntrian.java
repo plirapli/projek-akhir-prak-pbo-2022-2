@@ -36,6 +36,7 @@ public class DAOInfoAntrian implements InterfaceInfoAntrian {
             while (resultSet.next()) {
                 ModelInfoAntrian antrian = new ModelInfoAntrian();
                 antrian.setId_nomor_antrian(resultSet.getInt("id"));
+                antrian.setId_dokter(resultSet.getInt("id_dokter"));
                 antrian.setNama_dokter(resultSet.getString("dokter"));
                 antrian.setNomor(resultSet.getInt("nomor"));
                 listInfoAntrian.add(antrian);
@@ -65,21 +66,38 @@ public class DAOInfoAntrian implements InterfaceInfoAntrian {
             }
         }
     }
+    
+    @Override
+    public int getMaxAntrian(int id_dokter) {
+        int maxNumber = 0;
+        try {
+            PreparedStatement statement = connect.prepareStatement(getMax);
+            statement.setInt(1, id_dokter);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                maxNumber = resultSet.getInt("nomor");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error GetMax: " + e.getMessage());
+        }
+        return maxNumber;
+    }
 
     Connection connect;
-    // SQL Query
+    // SQL Queries
     final String getAll
-        = "SELECT id_nomor_antrian AS id, d.nama AS \"dokter\", nomor\n"
-        + "FROM nomor_antrian na\n"
-        + "INNER JOIN dokter d ON na.id_dokter = d.id_dokter;";
-
-    final String getAllPublic
-        = "SELECT d.nama AS \"dokter\", nomor "
-        + "FROM nomor_antrian na\n"
+        = "SELECT id_nomor_antrian AS id, d.id_dokter AS id_dokter, d.nama AS dokter, nomor "
+        + "FROM nomor_antrian na "
         + "INNER JOIN dokter d ON na.id_dokter = d.id_dokter;";
 
     final String updateById
         = "UPDATE nomor_antrian "
         + "SET nomor=? "
         + "WHERE id_nomor_antrian=?;";
+    
+    final String getMax
+        = "SELECT MAX(nomor_antrian) AS nomor "
+        + "FROM antrian "
+        + "WHERE id_dokter=?;";
 }

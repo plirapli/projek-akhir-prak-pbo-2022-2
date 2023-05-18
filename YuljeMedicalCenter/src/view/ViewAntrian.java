@@ -7,9 +7,12 @@ package view;
 import controller.ControllerAntrian;
 import controller.ControllerAntrianPublik;
 import controller.ControllerInfoAntrian;
-import helper.LookAndFeel;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -21,7 +24,6 @@ public class ViewAntrian extends javax.swing.JFrame {
      * Creates new form ViewAntrian
      */
     public ViewAntrian() {
-        this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
         showTable();
@@ -191,7 +193,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         btnSelesai.setBackground(new java.awt.Color(197, 247, 224));
         btnSelesai.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         btnSelesai.setForeground(new java.awt.Color(54, 111, 85));
-        btnSelesai.setText("Selesai");
+        btnSelesai.setText("Antrian Berikutnya");
         btnSelesai.setToolTipText("");
         btnSelesai.setBorder(null);
         btnSelesai.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -449,7 +451,6 @@ public class ViewAntrian extends javax.swing.JFrame {
     private void tableInfoAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInfoAntrianMouseClicked
         int row = tableInfoAntrian.getSelectedRow();
         controllerInfoAntrian.selectField(row);
-        setBtnState();
     }//GEN-LAST:event_tableInfoAntrianMouseClicked
 
     private void btnAntrianPublikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAntrianPublikActionPerformed
@@ -462,34 +463,21 @@ public class ViewAntrian extends javax.swing.JFrame {
         new ViewMainMenu();
         this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        new LookAndFeel();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewAntrian().setVisible(true);
-            }
-        });
-    }
-
-    private void setBtnState() {
-        String nama_dokter = getNamaDokter().getText();
-        if (!"-".equals(nama_dokter)) {
-            btnSelesai.setEnabled(true);
-            btnReset.setEnabled(true);
-        } else {
-            btnSelesai.setEnabled(false);
+    
+    public void getMaxAntrian() {
+        int current = Integer.parseInt(getNomorAntrian().getText());
+        int max = controllerInfoAntrian.checkMaxAntrian();
+        
+        if (current == 0) {
             btnReset.setEnabled(false);
+        } else {
+            btnReset.setEnabled(true);
+        }
+
+        if (current == max) {
+            btnSelesai.setEnabled(false);
+        } else {
+            btnSelesai.setEnabled(true);
         }
     }
 
@@ -522,8 +510,17 @@ public class ViewAntrian extends javax.swing.JFrame {
         this.selectedId_nomor_antrian = selectedId_nomor_antrian;
     }
 
+    public Integer getSelectedId_dokter() {
+        return selectedId_dokter;
+    }
+
+    public void setSelectedId_dokter(Integer selectedId_dokter) {
+        this.selectedId_dokter = selectedId_dokter;
+    }
+
     private ViewAntrianPublik viewAntrianPublik = new ViewAntrianPublik();
     private Integer selectedId_nomor_antrian;
+    private Integer selectedId_dokter;
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
     ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
     ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(viewAntrianPublik);

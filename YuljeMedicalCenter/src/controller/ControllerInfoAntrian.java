@@ -45,6 +45,7 @@ public class ControllerInfoAntrian {
         // Masukkin model tadi ke db
         implementInfoAntrian.update(antrian);
         view.getNomorAntrian().setText(nomor.toString());
+        view.getMaxAntrian();
     }
 
     public void updateDataReset() {
@@ -56,11 +57,20 @@ public class ControllerInfoAntrian {
         // Masukkin model tadi ke db
         implementInfoAntrian.update(antrian);
         view.getNomorAntrian().setText("0");
+        view.getMaxAntrian();
     }
 
     public void selectField(int row) {
         view.setSelectedId_nomor_antrian(listInfoAntrian.get(row).getId_nomor_antrian());
+        view.setSelectedId_dokter(listInfoAntrian.get(row).getId_dokter());
         view.getNamaDokter().setText(listInfoAntrian.get(row).getNama_dokter());
         view.getNomorAntrian().setText(listInfoAntrian.get(row).getNomor().toString());
+        view.getMaxAntrian();
+    }
+    
+    // Untuk mengecek nomor antrian yang paling besar di list antrian
+    public int checkMaxAntrian() {
+        int id_dokter = view.getSelectedId_dokter();
+        return implementInfoAntrian.getMaxAntrian(id_dokter);
     }
 }

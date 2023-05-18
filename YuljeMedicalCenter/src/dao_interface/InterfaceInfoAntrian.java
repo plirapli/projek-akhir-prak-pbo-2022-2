@@ -15,4 +15,6 @@ public interface InterfaceInfoAntrian {
     public List<ModelInfoAntrian> getAll();
     
     public void update (ModelInfoAntrian antrian);
+    
+    public int getMaxAntrian(int id);
 }

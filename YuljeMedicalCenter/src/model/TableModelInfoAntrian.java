@@ -45,15 +45,11 @@ public class TableModelInfoAntrian extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return listInfoAntrian.get(rowIndex).getId_nomor_antrian();
-            case 1:
-                return listInfoAntrian.get(rowIndex).getNama_dokter();
-            case 2:
-                return listInfoAntrian.get(rowIndex).getNomor();
-            default:
-                return null;
-        }
+        return switch (columnIndex) {
+            case 0 -> listInfoAntrian.get(rowIndex).getId_nomor_antrian();
+            case 1 -> listInfoAntrian.get(rowIndex).getNama_dokter();
+            case 2 -> listInfoAntrian.get(rowIndex).getNomor();
+            default -> null;
+        };
     }
 }

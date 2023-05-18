@@ -5,7 +5,6 @@
 package view;
 
 import controller.ControllerRiwayatAntrian;
-import helper.LookAndFeel;
 import javax.swing.JTable;
 
 /**
@@ -148,26 +147,6 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
         new ViewAntrian();
         this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        new LookAndFeel();
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewRiwayatAntrian().setVisible(true);
-            }
-        });
-    }
 
     private void showTable() {
         ControllerRiwayatAntrian controllerRiwayatAntrian = new ControllerRiwayatAntrian(this);
