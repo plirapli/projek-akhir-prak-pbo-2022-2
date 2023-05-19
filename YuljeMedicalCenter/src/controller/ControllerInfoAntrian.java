@@ -71,22 +71,25 @@ public class ControllerInfoAntrian {
     }
 
     public void updateAntrian() {
-        // Mengambil nama dokter & id_user berdasarkan id yang lagi diselect
-        implementAntrian = new DAOAntrian();
-        int id_dokter = view.getSelectedId_dokter();
-        int nomor_antrian = Integer.parseInt(view.getNomorAntrian().getText()) + 1;
-        ModelAntrian antrian = implementAntrian.getByID(id_dokter, nomor_antrian);
+        int nomor_antrian = Integer.parseInt(view.getNomorAntrian().getText());
 
-        // Masukkin data ke riwayat antrian
-        implementRiwayatAntrian = new DAORiwayatAntrian();
-        ModelRiwayatAntrian riwayatAntrian = new ModelRiwayatAntrian();
-        riwayatAntrian.setDokter(antrian.getDokter());
-        riwayatAntrian.setId_user(antrian.getId_user());
-        implementRiwayatAntrian.insert(riwayatAntrian);
+        if (nomor_antrian != 0) {
+            // Mengambil nama dokter & id_user berdasarkan id yang lagi diselect
+            implementAntrian = new DAOAntrian();
+            int id_dokter = view.getSelectedId_dokter();
+            ModelAntrian antrian = implementAntrian.getByID(id_dokter, nomor_antrian);
 
-        // Hapus data yang ada di antrian
-        int id_antrian = antrian.getId_antrian();
-        implementAntrian.delete(id_antrian);
+            // Masukkin data ke riwayat antrian
+            implementRiwayatAntrian = new DAORiwayatAntrian();
+            ModelRiwayatAntrian riwayatAntrian = new ModelRiwayatAntrian();
+            riwayatAntrian.setDokter(antrian.getDokter());
+            riwayatAntrian.setId_user(antrian.getId_user());
+            implementRiwayatAntrian.insert(riwayatAntrian);
+
+            // Hapus data yang ada di antrian
+            int id_antrian = antrian.getId_antrian();
+            implementAntrian.delete(id_antrian);
+        }
     }
 
     public void selectField(int row) {

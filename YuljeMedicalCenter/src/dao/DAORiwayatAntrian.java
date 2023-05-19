@@ -51,8 +51,8 @@ public class DAORiwayatAntrian implements InterfaceRiwayatAntrian {
     // Insert data riwayat antrian
     @Override
     public void insert(ModelRiwayatAntrian in) {
-        PreparedStatement statement = null;
         try {
+            PreparedStatement statement = null;
             statement = connect.prepareStatement(insert);
             statement.setInt(1, in.getId_user());
             statement.setString(2, in.getDokter());

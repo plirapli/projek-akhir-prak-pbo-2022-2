@@ -5,6 +5,7 @@
 package yuljemedicalcenter;
 
 import helper.LookAndFeel;
+import view.ViewAntrianPublik;
 import view.ViewMainMenu;
 
 /**
@@ -21,5 +22,6 @@ public class YuljeMedicalCenter {
         new LookAndFeel();
         new ViewMainMenu();
     }
-
+    
+    public static ViewAntrianPublik viewAntrianPublik = new ViewAntrianPublik();
 }

@@ -7,13 +7,10 @@ package view;
 import controller.ControllerAntrian;
 import controller.ControllerAntrianPublik;
 import controller.ControllerInfoAntrian;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+import yuljemedicalcenter.YuljeMedicalCenter;
 
 /**
  *
@@ -299,6 +296,80 @@ public class ViewAntrian extends javax.swing.JFrame {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -409,9 +480,20 @@ public class ViewAntrian extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-        controllerInfoAntrian.updateDataReset();
-        controllerInfoAntrian.readAllData();
-        controllerAntrianPublik.getAll();
+        int option = JOptionPane.showConfirmDialog(
+            null,
+            "Apakah Anda yakin ingin mengatur ulang antrian?",
+            "Atur ulang antrian",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (option == JOptionPane.YES_OPTION) {
+            controllerInfoAntrian.updateAntrian();
+            controllerInfoAntrian.updateDataReset();
+            controllerInfoAntrian.readAllData();
+            controllerAntrian.readAllData();
+            controllerAntrianPublik.getAll();
+        }
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnNextAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextAntrianActionPerformed
@@ -507,9 +589,9 @@ public class ViewAntrian extends javax.swing.JFrame {
         this.selectedId_dokter = selectedId_dokter;
     }
 
-    private ViewAntrianPublik viewAntrianPublik = new ViewAntrianPublik();
     private Integer selectedId_nomor_antrian;
     private Integer selectedId_dokter;
+    private ViewAntrianPublik viewAntrianPublik = YuljeMedicalCenter.viewAntrianPublik;
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
     ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
     ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(viewAntrianPublik);

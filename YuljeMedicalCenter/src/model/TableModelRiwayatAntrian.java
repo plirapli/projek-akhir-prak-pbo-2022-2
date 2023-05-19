@@ -21,6 +21,7 @@ public class TableModelRiwayatAntrian extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
+        System.out.println(listRiwayatAntrian.size());
         return listRiwayatAntrian.size();
     }
 
@@ -28,7 +29,7 @@ public class TableModelRiwayatAntrian extends AbstractTableModel {
     public int getColumnCount() {
         return 6;
     }
-
+    
     @Override
     public String getColumnName(int column) {
         switch (column) {
@@ -51,21 +52,21 @@ public class TableModelRiwayatAntrian extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return rowIndex + 1;
-            case 1:
-                return listRiwayatAntrian.get(rowIndex).getNo_rm();
-            case 2:
-                return listRiwayatAntrian.get(rowIndex).getPasien();
-            case 3:
-                return listRiwayatAntrian.get(rowIndex).getDokter();
-            case 4:
-                return listRiwayatAntrian.get(rowIndex).getDate();
-            case 5:
-                return listRiwayatAntrian.get(rowIndex).getTime();
-            default:
-                return null;
-        }
+        return switch (columnIndex) {
+            case 0 ->
+                rowIndex + 1;
+            case 1 ->
+                listRiwayatAntrian.get(rowIndex).getNo_rm();
+            case 2 ->
+                listRiwayatAntrian.get(rowIndex).getPasien();
+            case 3 ->
+                listRiwayatAntrian.get(rowIndex).getDokter();
+            case 4 ->
+                listRiwayatAntrian.get(rowIndex).getDate();
+            case 5 ->
+                listRiwayatAntrian.get(rowIndex).getTime();
+            default ->
+                null;
+        };
     }
 }

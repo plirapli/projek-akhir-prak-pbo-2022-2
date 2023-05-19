@@ -78,9 +78,6 @@ public class ViewRiwayatAntrian extends javax.swing.JFrame {
 
         tableRiwayatAntrian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
