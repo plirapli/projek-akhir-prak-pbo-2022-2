@@ -13,6 +13,7 @@ import dao_interface.InterfaceDokter;
 import dao_interface.InterfaceInfoAntrian;
 import dao_interface.InterfaceRiwayatAntrian;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.ModelAntrian;
 import model.ModelInfoAntrian;
 import model.ModelRiwayatAntrian;
@@ -76,12 +77,16 @@ public class ControllerInfoAntrian {
         int nomor_antrian = Integer.parseInt(view.getNomorAntrian().getText()) + 1;
         ModelAntrian antrian = implementAntrian.getByID(id_dokter, nomor_antrian);
 
-        // Bikin model buat dimasukkin ke riwayat antrian
+        // Masukkin data ke riwayat antrian
         implementRiwayatAntrian = new DAORiwayatAntrian();
         ModelRiwayatAntrian riwayatAntrian = new ModelRiwayatAntrian();
         riwayatAntrian.setDokter(antrian.getDokter());
         riwayatAntrian.setId_user(antrian.getId_user());
         implementRiwayatAntrian.insert(riwayatAntrian);
+
+        // Hapus data yang ada di antrian
+        int id_antrian = antrian.getId_antrian();
+        implementAntrian.delete(id_antrian);
     }
 
     public void selectField(int row) {

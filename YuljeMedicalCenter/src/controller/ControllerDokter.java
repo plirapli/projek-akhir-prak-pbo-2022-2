@@ -67,9 +67,8 @@ public class ControllerDokter {
     }
 
     public void deleteData() {
-        ModelDokter dokter = new ModelDokter();
-
+        String nama = viewDokter.getNamaData().getText();
         interfaceDokter.delete(Integer.parseInt(viewDokter.getId_dokterData().getText()));
-        JOptionPane.showMessageDialog(null, "Delete Data Success");
+        JOptionPane.showMessageDialog(null, "Berhasil menghapus dokter " + nama);
     }
 }

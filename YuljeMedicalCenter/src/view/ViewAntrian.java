@@ -455,6 +455,7 @@ public class ViewAntrian extends javax.swing.JFrame {
             controllerInfoAntrian.updateAntrian();
             controllerInfoAntrian.updateDataSelesai();
             controllerInfoAntrian.readAllData();
+            controllerAntrian.readAllData();
             controllerAntrianPublik.getAll();
         }
     }//GEN-LAST:event_btnNextAntrianActionPerformed

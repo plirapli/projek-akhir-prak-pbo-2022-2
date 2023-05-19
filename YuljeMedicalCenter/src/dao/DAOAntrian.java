@@ -60,11 +60,25 @@ public class DAOAntrian implements InterfaceAntrian {
             while (resultSet.next()) {
                 antrian.setId_user(resultSet.getInt("user"));
                 antrian.setDokter(resultSet.getString("nama_dokter"));
+                antrian.setId_antrian(resultSet.getInt("id_antrian"));
             }
         } catch (SQLException e) {
             System.out.println("Error (GET Nama Dokter): " + e.getMessage());
         }
         return antrian;
+    }
+
+    @Override
+    public void delete(int id) {
+        PreparedStatement statement = null;
+        try {
+            statement = connect.prepareStatement(delete);
+            statement.setInt(1, id);
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            System.out.println("Delete Failed! (" + e.getMessage() + ")");
+        }
     }
 
     Connection connect;
@@ -76,8 +90,11 @@ public class DAOAntrian implements InterfaceAntrian {
         + "INNER JOIN dokter d ON a.id_dokter=d.id_dokter;";
 
     final String getByID
-        = "SELECT d.nama AS nama_dokter, a.id_user AS user "
+        = "SELECT id_antrian, d.nama AS nama_dokter, a.id_user AS user "
         + "FROM antrian a "
         + "INNER JOIN dokter d ON a.id_dokter=d.id_dokter "
         + "WHERE a.id_dokter=? && nomor_antrian=?;";
+
+    final String delete
+        = "DELETE FROM antrian WHERE id_antrian=?;";
 }
