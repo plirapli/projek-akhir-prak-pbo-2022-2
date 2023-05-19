@@ -14,9 +14,17 @@ import java.time.Month;
  */
 public class ModelRiwayatAntrian {
 
-    private int no_rm;
+    private int id_user, no_rm;
     private String pasien, dokter;
     private Timestamp created_at;
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
 
     public int getNo_rm() {
         return no_rm;

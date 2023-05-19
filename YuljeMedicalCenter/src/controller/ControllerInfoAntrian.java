@@ -4,10 +4,18 @@
  */
 package controller;
 
+import dao.DAOAntrian;
+import dao.DAODokter;
 import dao.DAOInfoAntrian;
+import dao.DAORiwayatAntrian;
+import dao_interface.InterfaceAntrian;
+import dao_interface.InterfaceDokter;
 import dao_interface.InterfaceInfoAntrian;
+import dao_interface.InterfaceRiwayatAntrian;
 import java.util.List;
+import model.ModelAntrian;
 import model.ModelInfoAntrian;
+import model.ModelRiwayatAntrian;
 import model.TableModelInfoAntrian;
 import view.ViewAntrian;
 import view.ViewAntrianPublik;
@@ -19,8 +27,9 @@ import view.ViewAntrianPublik;
 public class ControllerInfoAntrian {
 
     ViewAntrian view;
-    ViewAntrianPublik viewAntrianPublik;
     InterfaceInfoAntrian implementInfoAntrian;
+    InterfaceAntrian implementAntrian;
+    InterfaceRiwayatAntrian implementRiwayatAntrian;
     List<ModelInfoAntrian> listInfoAntrian;
 
     public ControllerInfoAntrian(ViewAntrian view) {
@@ -60,6 +69,21 @@ public class ControllerInfoAntrian {
         view.getMaxAntrian();
     }
 
+    public void updateAntrian() {
+        // Mengambil nama dokter & id_user berdasarkan id yang lagi diselect
+        implementAntrian = new DAOAntrian();
+        int id_dokter = view.getSelectedId_dokter();
+        int nomor_antrian = Integer.parseInt(view.getNomorAntrian().getText()) + 1;
+        ModelAntrian antrian = implementAntrian.getByID(id_dokter, nomor_antrian);
+
+        // Bikin model buat dimasukkin ke riwayat antrian
+        implementRiwayatAntrian = new DAORiwayatAntrian();
+        ModelRiwayatAntrian riwayatAntrian = new ModelRiwayatAntrian();
+        riwayatAntrian.setDokter(antrian.getDokter());
+        riwayatAntrian.setId_user(antrian.getId_user());
+        implementRiwayatAntrian.insert(riwayatAntrian);
+    }
+
     public void selectField(int row) {
         view.setSelectedId_nomor_antrian(listInfoAntrian.get(row).getId_nomor_antrian());
         view.setSelectedId_dokter(listInfoAntrian.get(row).getId_dokter());
@@ -67,7 +91,7 @@ public class ControllerInfoAntrian {
         view.getNomorAntrian().setText(listInfoAntrian.get(row).getNomor().toString());
         view.getMaxAntrian();
     }
-    
+
     // Untuk mengecek nomor antrian yang paling besar di list antrian
     public int checkMaxAntrian() {
         int id_dokter = view.getSelectedId_dokter();

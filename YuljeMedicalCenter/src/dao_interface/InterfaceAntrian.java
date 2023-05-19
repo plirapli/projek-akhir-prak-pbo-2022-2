@@ -13,4 +13,6 @@ import model.ModelAntrian;
  */
 public interface InterfaceAntrian {
     public List<ModelAntrian> getAll();
+    
+    public ModelAntrian getByID(int id_dokter, int nomor_antrian);
 }

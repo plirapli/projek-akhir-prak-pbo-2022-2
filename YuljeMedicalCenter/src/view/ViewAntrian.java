@@ -10,6 +10,7 @@ import controller.ControllerInfoAntrian;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -53,7 +54,7 @@ public class ViewAntrian extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         textNomorAntrian = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
-        btnSelesai = new javax.swing.JButton();
+        btnNextAntrian = new javax.swing.JButton();
         btnAntrianPublik = new javax.swing.JButton();
         panelDaftarAntrian = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -190,17 +191,17 @@ public class ViewAntrian extends javax.swing.JFrame {
             }
         });
 
-        btnSelesai.setBackground(new java.awt.Color(197, 247, 224));
-        btnSelesai.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        btnSelesai.setForeground(new java.awt.Color(54, 111, 85));
-        btnSelesai.setText("Antrian Berikutnya");
-        btnSelesai.setToolTipText("");
-        btnSelesai.setBorder(null);
-        btnSelesai.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSelesai.setEnabled(false);
-        btnSelesai.addActionListener(new java.awt.event.ActionListener() {
+        btnNextAntrian.setBackground(new java.awt.Color(197, 247, 224));
+        btnNextAntrian.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnNextAntrian.setForeground(new java.awt.Color(54, 111, 85));
+        btnNextAntrian.setText("Antrian Berikutnya");
+        btnNextAntrian.setToolTipText("");
+        btnNextAntrian.setBorder(null);
+        btnNextAntrian.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnNextAntrian.setEnabled(false);
+        btnNextAntrian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelesaiActionPerformed(evt);
+                btnNextAntrianActionPerformed(evt);
             }
         });
 
@@ -233,7 +234,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                             .addComponent(textNomorAntrian)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNextAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -258,7 +259,7 @@ public class ViewAntrian extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNextAntrian, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 83, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -441,12 +442,22 @@ public class ViewAntrian extends javax.swing.JFrame {
         controllerAntrianPublik.getAll();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelesaiActionPerformed
+    private void btnNextAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextAntrianActionPerformed
         // TODO add your handling code here:
-        controllerInfoAntrian.updateDataSelesai();
-        controllerInfoAntrian.readAllData();
-        controllerAntrianPublik.getAll();
-    }//GEN-LAST:event_btnSelesaiActionPerformed
+        int option = JOptionPane.showConfirmDialog(
+            null,
+            "Apakah Anda yakin ingin melanjutkan antrian?",
+            "Konfirmasi",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (option == JOptionPane.YES_OPTION) {
+            controllerInfoAntrian.updateAntrian();
+            controllerInfoAntrian.updateDataSelesai();
+            controllerInfoAntrian.readAllData();
+            controllerAntrianPublik.getAll();
+        }
+    }//GEN-LAST:event_btnNextAntrianActionPerformed
 
     private void tableInfoAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInfoAntrianMouseClicked
         int row = tableInfoAntrian.getSelectedRow();
@@ -463,11 +474,11 @@ public class ViewAntrian extends javax.swing.JFrame {
         new ViewMainMenu();
         this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
-    
+
     public void getMaxAntrian() {
         int current = Integer.parseInt(getNomorAntrian().getText());
         int max = controllerInfoAntrian.checkMaxAntrian();
-        
+
         if (current == 0) {
             btnReset.setEnabled(false);
         } else {
@@ -475,9 +486,9 @@ public class ViewAntrian extends javax.swing.JFrame {
         }
 
         if (current == max) {
-            btnSelesai.setEnabled(false);
+            btnNextAntrian.setEnabled(false);
         } else {
-            btnSelesai.setEnabled(true);
+            btnNextAntrian.setEnabled(true);
         }
     }
 
@@ -528,9 +539,9 @@ public class ViewAntrian extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAntrianPublik;
     private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnNextAntrian;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRiwayatAntrian;
-    private javax.swing.JButton btnSelesai;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

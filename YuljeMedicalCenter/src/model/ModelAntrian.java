@@ -10,8 +10,16 @@ package model;
  */
 public class ModelAntrian {
 
-    private Integer nomor_rm, nomor_antrian;
+    private Integer id_user, nomor_rm, nomor_antrian;
     private String dokter, pasien;
+
+    public Integer getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
 
     public Integer getNomor_rm() {
         return nomor_rm;

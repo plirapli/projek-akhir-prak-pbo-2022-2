@@ -14,4 +14,6 @@ import model.ModelRiwayatAntrian;
 public interface InterfaceRiwayatAntrian {
 
     public List<ModelRiwayatAntrian> getAll();
+    
+    public void insert(ModelRiwayatAntrian in);
 }
