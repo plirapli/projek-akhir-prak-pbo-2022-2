@@ -53,7 +53,7 @@ public class TableModelRiwayatAntrian extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex;
+                return rowIndex + 1;
             case 1:
                 return listRiwayatAntrian.get(rowIndex).getNo_rm();
             case 2:
