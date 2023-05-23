@@ -591,7 +591,7 @@ public class ViewAntrian extends javax.swing.JFrame {
 
     private Integer selectedId_nomor_antrian;
     private Integer selectedId_dokter;
-    private ViewAntrianPublik viewAntrianPublik = YuljeMedicalCenter.viewAntrianPublik;
+    private final ViewAntrianPublik viewAntrianPublik = YuljeMedicalCenter.viewAntrianPublik;
     ControllerAntrian controllerAntrian = new ControllerAntrian(this);
     ControllerInfoAntrian controllerInfoAntrian = new ControllerInfoAntrian(this);
     ControllerAntrianPublik controllerAntrianPublik = new ControllerAntrianPublik(viewAntrianPublik);

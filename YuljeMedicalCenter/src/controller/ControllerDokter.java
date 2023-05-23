@@ -36,7 +36,7 @@ public class ControllerDokter {
     public void insertData() {
         // mengambil data dari form dan masukkin ke db
         ModelDokter dokter = new ModelDokter();
-        dokter.setNama(viewDokter.getNamaData().getText());
+        dokter.setNama("dr. " + viewDokter.getNamaData().getText());
         dokter.setSpesialis(viewDokter.getSpesialisasiData().getText());
         interfaceDokter.insert(dokter);
         JOptionPane.showMessageDialog(null, "Berhasil menambahkan " + dokter.getNama() + " ke dalam daftar.");
@@ -56,7 +56,7 @@ public class ControllerDokter {
         dokter.setId_dokter(Integer.parseInt(viewDokter.getId_dokterData().getText()));
 
         interfaceDokter.update(dokter);
-        JOptionPane.showMessageDialog(null, "Update Success");
+        JOptionPane.showMessageDialog(null, "Berhasil mengubah informasi dokter!");
     }
 
     public void reset() {
@@ -69,6 +69,7 @@ public class ControllerDokter {
     public void deleteData() {
         String nama = viewDokter.getNamaData().getText();
         interfaceDokter.delete(Integer.parseInt(viewDokter.getId_dokterData().getText()));
+        
         JOptionPane.showMessageDialog(null, "Berhasil menghapus dokter " + nama);
     }
 }
